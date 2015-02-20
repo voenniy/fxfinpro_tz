@@ -57,6 +57,9 @@ return array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
 		),
+        'cache'=> array(
+            'class' => 'CFileCache'
+        ),
 
 		'log'=>array(
 			'class'=>'CLogRouter',
@@ -66,11 +69,11 @@ return array(
 					'levels'=>'error, warning',
 				),
 				// uncomment the following to show log messages on web pages
-				/*
+
 				array(
 					'class'=>'CWebLogRoute',
 				),
-				*/
+
 			),
 		),
 

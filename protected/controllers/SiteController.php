@@ -8,7 +8,9 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
-        $quotes = new CActiveDataProvider(Quotes::model(),[
+        $dependency = new CDbCacheDependency('SELECT max(updated_at) FROM quotes');
+
+        $quotes = new CActiveDataProvider(Quotes::model()->cache(60*60*24*30, $dependency,2),[
             'pagination'=>[
                 'pageSize' => 10,
             ]
